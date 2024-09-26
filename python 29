@@ -1,0 +1,12 @@
+s = input()
+scr = 0
+
+for i in range(len(s)):
+    if s[i] == "H":
+        scr += 2
+        if i >= 2 and s[i-2:i+1] == "HHH":  # Check if there are three consecutive 'H'
+            break
+    elif s[i] == "T":
+        scr -= 1
+
+print(scr)
