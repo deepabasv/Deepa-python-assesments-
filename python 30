@@ -1,0 +1,21 @@
+n, m = map(int, input().split())
+a = list(map(int, input().split()))
+p = []
+
+# Read prices and weights
+for j in range(m):
+    price, weight = map(int, input().split())
+    p.append([price, weight])
+
+res = []
+
+# For each amount in a, calculate the total weight
+for i in a:
+    t = 0  # Reset total weight for each item
+    for prc, wt in p:
+        if prc <= i:
+            t += wt
+    res.append(t)
+
+# Print the result
+print(*res, sep=" ")
