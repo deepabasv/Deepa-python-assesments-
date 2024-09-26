@@ -1,8 +1,14 @@
-def reverse_words(string):
-    words = string.split()  
-    words.reverse()  
-    reversed_string = " ".join(words)  
-    return reversed_string
-input_string = input()
-reversed_string = reverse_words(input_string)
-print(reversed_string)
+def two_sum(nums, target):
+
+  num_to_index = {}
+  for i, num in enumerate(nums):
+    complement = target - num
+    if complement in num_to_index:
+      return [num_to_index[complement], i]
+    num_to_index[num] = i
+
+  raise ValueError("No two numbers add up to the target sum.")
+nums = list(map(int,input().split()))
+target = int(input())
+indices = two_sum(nums, target)
+print(indices)
