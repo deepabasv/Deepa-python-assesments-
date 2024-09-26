@@ -1,0 +1,16 @@
+n = int(input())
+d = len(str(n))
+t = 0
+
+# Calculate the contribution for numbers with fewer digits
+for i in range(1, d):
+    c = (i - 1) // 3
+    num = 9 * (10 ** (i - 1))
+    t += c * num
+
+# Contribution for the numbers with the same number of digits as n
+c = (d - 1) // 3
+num = (n - (10 ** (d - 1))) + 1
+t += c * num
+
+print(t)
