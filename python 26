@@ -1,0 +1,31 @@
+n = int(input())
+l = list(map(int, input().split()))
+a, b = 0, 0
+
+# Use a dictionary to count occurrences of each number
+count_map = {}
+
+for number in l:
+    if number in count_map:
+        count_map[number] += 1
+    else:
+        count_map[number] = 1
+
+for number, count in count_map.items():
+    if number % 2 == 0:  # Even number
+        if count % 2 == 0:
+            a += 1  # Even count contributes to A
+        else:
+            b += 1  # Odd count contributes to B
+    else:  # Odd number
+        if count % 2 == 0:
+            b += 1  # Even count contributes to B
+        else:
+            a += 1  # Odd count contributes to A
+
+if a > b:
+    print("A", a - b)
+elif b > a:
+    print("B", b - a)
+else:
+    print("T 0")
